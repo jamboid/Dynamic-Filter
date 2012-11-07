@@ -44,9 +44,6 @@ boilerplate.filter = (function ($) {
                     // Reset active categories array
                     activeCategories = [];
 
-                    // Match items with multiple categories
-                    boilerplate.utils.cl(activeFilters);
-
                     // mark unmatched items that are visible for DELETION!!!
                     $(listItems).filter(':not(.matched):not(.hidden)').addClass('toHide');
 
@@ -197,8 +194,8 @@ boilerplate.filter = (function ($) {
                 });
 
                 // Event listener for click on Filter Mode toggle
-                $(filterList).find('.filterMode').on('click', function () {
-
+                $(filterList).find('.filterMode').on('click', function (event) {
+                    event.preventDefault();
                     if (filterMode == 'inclusive') {
                         filterMode = 'exclusive';
                     } else {
@@ -252,12 +249,6 @@ boilerplate.filter = (function ($) {
         },
         resetFilterStates = function (items) {
             $(items).removeClass('matched').removeClass('toHide').removeClass('active');
-        },
-        // Actions object
-        actions = {
-            resetFilters: function () {
-
-            }
         },
         buildFilterList = function (filterList) {
             boilerplate.utils.cl("Build filter list...");
