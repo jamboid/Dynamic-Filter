@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<!-- <meta name="viewport" content="width=device-width"> -->
+
+<title>Dynamic Filtering - Snippets</title>
+
+<!-- Stylesheets -->
+<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/screen.css" media="screen" />
+<!-- JavaScript -->
+<script type="text/javascript">
+    /* Replace the default "no-js" class on the <html> tag with "js" */
+    document.documentElement.className = document.documentElement.className.replace(/(\s|^)no-js(\s|$)/, '$1' + 'js' + '$2');
+</script>
+<!-- HTML Shiv -->
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+<!-- Intro -->
+<header class="stIntro st">
+    <div class="fdHeader fd">
+        <div class="cpBrand cp">
+            <div class="in">
+                <h1 class="alpha">Dynamic Filtering</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Stage -->
+<section class="st">
+    <div class="fdFilterList fd" data-plugin="filterList">
+        <div class="rgMainContent rg">
+            <div class="cpIndex cp" data-filter-list="list">
+            	<div class="in">
+                	<h2 class="beta">Categories</h2>
+                	<section class="indexCategory">
+                	   <h3 class="delta">A</h3>
+                	   <ul class="categoryList">
+                	       <li class="item" data-categories='["alien","hero"]'>
+                	           <a href="#">Admiral Ackbar</a>
+                	       </li>
+                	       <li class="item" data-categories='["human","villain"]'>
+                	           <a href="#">Admiral Piet</a>
+                	       </li>
+                	       <li class="item" data-categories='["tech"]'>
+                	           <a href="#">A-Wing Figther</a>
+                	       </li>
+                	   </ul>
+                	</section>
+                	<section class="indexCategory">
+                	   <h3 class="delta">B</h3>
+                	   <ul class="categoryList">
+                	       <li class="item" data-categories='["human","villain"]'>
+                	           <a href="#" >Boba Fett</a>
+                	       </li>
+                	       <li class="item" data-categories='["alien","villain"]'>
+                	           <a href="#" >Bib Fortuna</a>
+                	       </li>
+                	       <li class="item" data-categories='["human","hero"]'>
+                	           <a href="#" >Biggs Darklighter</a>
+                	       </li>
+                	       <li class="item" data-categories='["tech"]'>
+                	           <a href="#">B-Wing Figther</a>
+                	       </li>
+                	   </ul>
+                	</section>
+                	<section class="indexCategory">
+                	   <h3 class="delta">C</h3>
+                	   <ul class="categoryList">
+                	       <li class="item" data-categories='["droid","hero"]'>
+                	           <a href="#" >C3PO</a>
+                	       </li>
+                	       <li class="item" data-categories='["alien","hero"]'>
+                	           <a href="#" >Chewbacca</a>
+                	       </li>
+                	   </ul>
+                	</section>
+                	<section class="indexCategory">
+                	   <h3 class="delta">D</h3>
+                	   <ul class="categoryList">
+                	       <li class="item" data-categories='["human","villain"]'>
+                	           <a href="#">Darth Vader</a>
+                	       </li>
+                	       <li class="item" data-categories='["human","hero"]'>
+                	           <a href="#">Dash Rendar</a>
+                	       </li>
+                	       <li class="item" data-categories='["tech"]'>
+                	           <a href="#">Death Star</a>
+                	       </li>
+                	       <li class="item" data-categories='["human","villain"]'>
+                	           <a href="#">Dengar</a>
+                	       </li>
+                	   </ul>
+                	</section>
+                	<section class="indexCategory">
+                	   <h3 class="delta">H</h3>
+                	   <ul class="categoryList">
+                	       <li class="item" data-categories='["human","hero"]'>
+                	           <a href="#">Han Solo</a>
+                	       </li>
+                	   </ul>
+                	</section>
+                	<section class="indexCategory">
+                	   <h3 class="delta">L</h3>
+                	   <ul class="categoryList">
+                	       <li class="item" data-categories='["human","hero"]'>
+                	           <a href="#">Lando Calrissian</a>
+                	       </li>
+                	       <li class="item" data-categories='["human","hero","droid"]'>
+                	           <a href="#">Lobot</a>
+                	       </li>
+                	       <li class="item" data-categories='["human","hero"]'>
+                	           <a href="#">Luke Skywalker</a>
+                	       </li>
+                	   </ul>
+                	</section>
+            	</div>
+            </div>
+        </div>
+        <div class="rgSubContent rg">
+            <div class="cpFilter cp" data-filter-list="filter">
+                <div class="in">
+                    <h2 class="beta">Filter</h2>
+                    <ul class="filterCategories">
+                        <li data-filter="human"><a href="#">Humans</a></li>
+                        <li data-filter="alien"><a href="#">Aliens</a></li>
+                        <li data-filter="droid"><a href="#">Droids</a></li>
+                        <li data-filter="tech"><a href="#">Technology</a></li>
+                        <li data-filter="hero"><a href="#">Heroes</a></li>
+                        <li data-filter="villain"><a href="#">Villains</a></li>
+                    </ul>
+                    <p class="filterMode">
+                        <a href="#">Mode: <span></span></a>
+                    </p>
+                    <p class="filterReset">
+                        <a href="#">Reset Filters</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Outro / Footer -->
+<footer class="stOutro st">
+    <div class="fdFooter fd">
+        <div class="cpLegal cp">
+            <div class="in">
+                <p class="copyright">Copyright &copy; Jamie Boyd 2012.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Scripts -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/libs/jquery.metadata.js"></script>
+<script type="text/javascript" src="assets/js/boilerplate.js"></script>
+<script type="text/javascript" src="assets/js/boilerplate.utils.js"></script>
+<script type="text/javascript" src="assets/js/boilerplate.filter.js"></script>
+<!-- End of Scripts -->
+</body>
+</html>
