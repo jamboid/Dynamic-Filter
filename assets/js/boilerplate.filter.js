@@ -44,6 +44,9 @@ boilerplate.filter = (function ($) {
                     // Reset active categories array
                     activeCategories = [];
 
+                    // Match items with multiple categories
+                    boilerplate.utils.cl(activeFilters);
+
                     // mark unmatched items that are visible for DELETION!!!
                     $(listItems).filter(':not(.matched):not(.hidden)').addClass('toHide');
 
@@ -231,7 +234,7 @@ boilerplate.filter = (function ($) {
 
                     $.each(filterCategories, function () {
                         if($.inArray(this, itemCategories) > -1){
-                            // Mark the item as matched and remove any previously added 'toHide' class
+                            // Mark the item as matched
                             match = true;
                         } else {
                             // If category match fails and we are in 'exclusive' mode
@@ -249,6 +252,12 @@ boilerplate.filter = (function ($) {
         },
         resetFilterStates = function (items) {
             $(items).removeClass('matched').removeClass('toHide').removeClass('active');
+        },
+        // Actions object
+        actions = {
+            resetFilters: function () {
+
+            }
         },
         buildFilterList = function (filterList) {
             boilerplate.utils.cl("Build filter list...");
