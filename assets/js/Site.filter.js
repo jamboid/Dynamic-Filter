@@ -1,10 +1,10 @@
-// boilerplate.filter.js
+// Site.filter.js
 
 // Check if base namespace is defined so it isn't overwritten
-var boilerplate = boilerplate || {};
+var Site = Site || {};
 
 // Create child namespace
-boilerplate.filter = (function ($) {
+Site.filter = (function ($) {
     "use strict";
     // Variables
     var defaults = {
@@ -38,14 +38,14 @@ boilerplate.filter = (function ($) {
                         var filterCategory = $(this).data("filter");
                         activeCategories.push(filterCategory);
                     });
-                    boilerplate.utils.cl(activeCategories);
+                    Site.utils.cl(activeCategories);
                     matchItemsWithCategories(activeCategories, listItems, filterMode);
 
                     // Reset active categories array
                     activeCategories = [];
 
                     // Match items with multiple categories
-                    boilerplate.utils.cl(activeFilters);
+                    Site.utils.cl(activeFilters);
 
                     // mark unmatched items that are visible for DELETION!!!
                     $(listItems).filter(':not(.matched):not(.hidden)').addClass('toHide');
@@ -61,7 +61,7 @@ boilerplate.filter = (function ($) {
                             itemsInTransition++;
                             $(thisSection).hide(defaults.transitionSpeed, function () {
                                 $(thisSection).addClass('hidden');
-                                boilerplate.utils.resetStyles(thisSection);
+                                Site.utils.resetStyles(thisSection);
                                 itemsInTransition--;
                             });
                         }
@@ -77,7 +77,7 @@ boilerplate.filter = (function ($) {
                             itemsInTransition++;
                             $(thisSection).show(defaults.transitionSpeed, function () {
                                 $(thisSection).removeClass('hidden');
-                                boilerplate.utils.resetStyles(thisSection);
+                                Site.utils.resetStyles(thisSection);
                                 itemsInTransition--;
                             });
                         }
@@ -93,7 +93,7 @@ boilerplate.filter = (function ($) {
 
                         $(this).show(defaults.transitionSpeed, function () {
                             $(this).addClass('active').removeClass('matched').removeClass('hidden');
-                            boilerplate.utils.resetStyles(this);
+                            Site.utils.resetStyles(this);
                             itemsInTransition--;
                         });
                     });
@@ -106,7 +106,7 @@ boilerplate.filter = (function ($) {
                         $(this).hide(defaults.transitionSpeed, function () {
                             $(this).removeClass('active').addClass('hidden');
                             resetFilterStates(this);
-                            boilerplate.utils.resetStyles(this);
+                            Site.utils.resetStyles(this);
                             itemsInTransition--;
                         });
                     });
@@ -114,7 +114,7 @@ boilerplate.filter = (function ($) {
                 },
                 // Reset list to display all and filters to deactivate all
                 resetFilter = function () {
-                    boilerplate.utils.cl("Reset all items to visible");
+                    Site.utils.cl("Reset all items to visible");
 
                     $(listItems).filter('.hidden').each(function () {
 
@@ -123,7 +123,7 @@ boilerplate.filter = (function ($) {
                         $(this).show(defaults.transitionSpeed, function () {
                             $(this).removeClass('hidden');
                             resetFilterStates(listItems);
-                            boilerplate.utils.resetStyles(listItems);
+                            Site.utils.resetStyles(listItems);
                             itemsInTransition--;
                         });
                     });
@@ -135,7 +135,7 @@ boilerplate.filter = (function ($) {
 
                         $(this).show(defaults.transitionSpeed, function () {
                             $(this).removeClass('hidden');
-                            boilerplate.utils.resetStyles(listCategories);
+                            Site.utils.resetStyles(listCategories);
                             itemsInTransition--;
                         });
                     });
@@ -158,7 +158,7 @@ boilerplate.filter = (function ($) {
                     var thisFilter = filter;
 
                     if (itemsInTransition > 0) {
-                        boilerplate.utils.cl(itemsInTransition);
+                        Site.utils.cl(itemsInTransition);
                         return;
                     } else {
 
@@ -171,7 +171,7 @@ boilerplate.filter = (function ($) {
                         }
                         // If control activated is the reset button remove all active classes
                         if( $(thisFilter).hasClass('filterReset') ){
-                            boilerplate.utils.cl("Reset clicked");
+                            Site.utils.cl("Reset clicked");
                             // Remove all active classes to trigger filter reset
                             $(filterControls).removeClass('active');
                         // Otherwise add/remove 'active' class to activated control
@@ -220,7 +220,7 @@ boilerplate.filter = (function ($) {
                 thisFullList = fullList,
                 thisMode = mode;
 
-                boilerplate.utils.cl(filterCategories);
+                Site.utils.cl(filterCategories);
 
                 $(thisFullList).each( function () {
                     var thisItem = this,
@@ -230,11 +230,25 @@ boilerplate.filter = (function ($) {
                         // 'true' value also allows 'inclusive' mode match test to succeed
                         exclusiveMatch = true;
 
-                    // If the filter catergory matches one of the categories the item is tagged with...
+                        // Convert array to string to get around weird IE9- bug
+                        itemCategories = itemCategories.toString();
 
+                        Site.utils.cl('to string:');
+                        Site.utils.cl(itemCategories);
+
+
+                    // If the filter catergory matches one of the categories the item is tagged with...
                     $.each(filterCategories, function () {
-                        if($.inArray(this, itemCategories) > -1){
+
+                        // If filter category is found in string of item categories...
+                        if(itemCategories.indexOf(this) > -1){
                             // Mark the item as matched
+
+                            Site.utils.cl(itemCategories.indexOf(thisItem));
+
+                            Site.utils.cl(this);
+                            Site.utils.cl(itemCategories);
+
                             match = true;
                         } else {
                             // If category match fails and we are in 'exclusive' mode
@@ -253,14 +267,8 @@ boilerplate.filter = (function ($) {
         resetFilterStates = function (items) {
             $(items).removeClass('matched').removeClass('toHide').removeClass('active');
         },
-        // Actions object
-        actions = {
-            resetFilters: function () {
-
-            }
-        },
         buildFilterList = function (filterList) {
-            boilerplate.utils.cl("Build filter list...");
+            Site.utils.cl("Build filter list...");
             var thisFilterList = filterList;
             bindFilterEvents(thisFilterList);
         },
@@ -271,7 +279,7 @@ boilerplate.filter = (function ($) {
         },
         init = function () {
             setupFilterLists();
-            boilerplate.utils.cl("boilerplate.filter initialised");
+            Site.utils.cl("Site.filter initialised");
         };
 
     // Return Public API

@@ -1,10 +1,10 @@
-// boilerplate.Utiltiies.js
+// Site.Utiltiies.js
 
 // Check if base namespace is defined
-var boilerplate = boilerplate || {};
+var Site = Site || {};
 
-// boilerplate.utils namespace
-boilerplate.utils = (function ($) {
+// Site.utils namespace
+Site.utils = (function ($) {
     "use strict";
     // Variables
     var debugMode = true,
@@ -40,7 +40,7 @@ boilerplate.utils = (function ($) {
 
         // Initialisation
         init = function () {
-            boilerplate.utils.cl("boilerplate.init called");
+            Site.utils.cl("Site.init called");
         };
 
     // Return Public API
